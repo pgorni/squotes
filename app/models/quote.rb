@@ -3,7 +3,7 @@ class Quote < ApplicationRecord
   validates_date :recorded_at, allow_blank: true
 
   def to_irc
-    "[#{self.recorded_at}] <#{self.author}> #{self.quote_text}"
+    "[#{self.recorded_at.blank? ? Time.at(0) : self.recorded_at}] <#{self.author.blank? ? "anonymous" : self.author}> #{self.quote_text}"
   end
 
   def render
