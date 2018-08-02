@@ -1,0 +1,3 @@
+database:
+  username: <%= ENV['DB_USERNAME'] || 'ng-simple-quote' %>
+  password: <%= ENV['DB_PASSWORD'] || 'ng-simple-quote' %>

@@ -1,0 +1,7 @@
+<%= form_for @quote, url: quotes_path, method: 'post' do |f| %>
+  Quote: <%= f.text_area :quote_text %><br />
+  Author: <%= f.text_field :author %><br />
+  Recorded at: <%= f.text_field :recorded_at %><br />
+  Quote origin: <%= f.text_field :origin %><br />
+  <%= f.submit %>
+<% end %>

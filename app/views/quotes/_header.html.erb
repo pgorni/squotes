@@ -1,0 +1,7 @@
+<%= link_to 'Add quote', new_quote_path %>
+
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <%= content_tag :div, msg, class: "flash_#{name}", style: "color:red"%>
+  <% end %>
+<% end %>
