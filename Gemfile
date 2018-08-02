@@ -36,13 +36,18 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# store configs in separate files
 gem 'config'
 
+# timestamp/date validations
 gem 'validates_timeliness', '~> 4.0.2'
 
 # more jumbotrons
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+
+# better forms
+gem 'simple_form', '~> 4.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

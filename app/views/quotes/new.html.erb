@@ -2,16 +2,12 @@
 
 <br></br>
 
-<div class="container text-center">
-  <%= form_for @quote, url: quotes_path, method: 'post' do |f| %>
-    Quote: <%= f.text_area :quote_text %>
-    <hr></hr>
-    Author: <%= f.text_field :author %>
-    <hr></hr>
-    Recorded at: <%= f.text_field :recorded_at %>
-    <hr></hr>
-    Quote origin: <%= f.text_field :origin %>
-    <hr></hr>
+<div class="container">
+  <%= simple_form_for @quote, html: { class: 'form-vertical' }, url: quotes_path, method: 'post' do |f| %>
+    <%= f.input :quote_text, label: "Quote text", error: "The quote is mandatory!" %>
+    <%= f.input :author, label: "Author", hint: "can be anonymous" %>
+    <%= f.input :recorded_at, as: :text, label: "Recorded at:", hint: "if given, must be a date (YYYY-MM-DD) or a timestamp", error: "Invalid date." %>
+    <%= f.input :origin, label: "Quote origin:", hint: "can be blank; type IRC for a surprise" %>
     <%= f.submit %>
   <% end %>
 </div>
