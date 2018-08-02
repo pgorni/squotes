@@ -1,14 +1,18 @@
 <%= render "header" %>
 
-<hr>
+<br></br>
 
 <% @quotes.each do |q| %>
-<% if q.origin.match /irc|IRC/ %>
-  <!-- I know it's 2018 -->
-  <marquee bgcolor="black" style="color:#90FF00"><%= q.render %></marquee>
-<% else %>
-  <div class="quote"><%= q.render %></div>
-<% end %>
 
-<hr>
+<div class="container-fluid">
+  <% if q.origin.match /irc|IRC/ %>
+    <!-- I know it's 2018 -->
+    <marquee bgcolor="black" style="color:#90FF00"><%= q.render %></marquee>
+  <% else %>
+    <div class="quote blockquote"><%= q.render %></div>
+    <footer class="blockquote-footer"><%= q.author.blank? ? "anonymous" : q.author %></footer>
+  <% end %>
+</div>
+
+<hr></hr>
 <% end %>

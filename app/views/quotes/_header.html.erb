@@ -1,7 +1,23 @@
-<%= link_to 'Add quote', new_quote_path %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">More jumbotrons</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/quotes/new">Add quote</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <%= content_tag :div, msg, class: "flash_#{name}", style: "color:red"%>
+    <%= content_tag :div, msg, class: "flash_#{name} alert-primary"%>
   <% end %>
 <% end %>
