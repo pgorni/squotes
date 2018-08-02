@@ -1,13 +1,15 @@
-<div class="container text-center">
-  <%= form_for @quote, url: quotes_path, method: 'post' do |f| %>
-    Quote: <%= f.text_area :quote_text %>
-    <hr></hr>
-    Author: <%= f.text_field :author %>
-    <hr></hr>
-    Recorded at: <%= f.text_field :recorded_at %>
-    <hr></hr>
-    Quote origin: <%= f.text_field :origin %>
-    <hr></hr>
-    <%= f.submit %>
-  <% end %>
-</div>
+<body>
+  <div class="container text-center">
+    <%= form_for @quote, url: quotes_path, method: 'post' do |f| %>
+      Quote: <%= f.text_area :quote_text %>
+      <hr></hr>
+      Author: <%= f.text_field :author %>
+      <hr></hr>
+      Recorded at: <%= f.text_field :recorded_at %>
+      <hr></hr>
+      Quote origin: <%= f.text_field :origin %>
+      <hr></hr>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</body>
