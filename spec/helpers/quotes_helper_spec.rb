@@ -11,5 +11,37 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe QuotesHelper, type: :helper do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  it "turns a quote to an IRC-formatted quote" do 
+    q = Quote.new(
+      author: "rspec",
+      quote_text: "hello there!",
+      recorded_at: "2018-08-01 00:00:00 UTC",
+      origin: "irc"
+    )
+
+    expect(to_irc(q)).to eql("[2018-08-01 00:00:00 UTC] <rspec> hello there!")
+  end
+
+  context "when rendering the metadata line" do
+    it "displays the author as anonymous if they're unknown" do
+      q = Quote.new(
+        quote_text: "something"
+      )
+
+      expect(metadata_line(q)).to eql("anonymous, origin: unknown")
+    end
+
+    it "renders fully" do
+      q = Quote.new(
+        quote_text: "something",
+        author: "rspec",
+        origin: "spec tests",
+        recorded_at: "2018-08-01"
+      )
+
+      expect(metadata_line(q)).to eql("rspec, origin: spec tests, recorded at 2018-08-01")
+
+      # ...a couple more cases here
+    end
+  end
 end

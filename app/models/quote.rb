@@ -5,16 +5,5 @@ class Quote < ApplicationRecord
   def to_irc
     "[#{self.recorded_at.blank? ? Time.at(0) : self.recorded_at}] <#{self.author.blank? ? "anonymous" : self.author}> #{self.quote_text}"
   end
-
-  def render
-    if self.origin.match /irc|IRC/
-      self.to_irc
-    else
-      q = self.quote_text
-      q << " ~#{self.author}" unless self.author.blank?
-      q << ", origin: #{self.origin.blank? ? "unknown" : self.origin}"
-      q << ", recorded at #{self.recorded_at.strftime("%F")}" unless self.recorded_at.blank?
-      q
-    end
-  end
+  
 end

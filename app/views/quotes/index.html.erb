@@ -7,10 +7,10 @@
 <div class="container-fluid">
   <% if q.origin.match /irc|IRC/ %>
     <!-- I know it's 2018 -->
-    <marquee bgcolor="black" style="color:#90FF00"><%= q.render %></marquee>
+    <marquee bgcolor="black" style="color:#90FF00"><%= to_irc(q) %></marquee>
   <% else %>
-    <div class="quote blockquote"><%= q.render %></div>
-    <footer class="blockquote-footer"><%= q.author.blank? ? "anonymous" : q.author %></footer>
+    <div class="quote blockquote"><%= q.quote_text %></div>
+    <footer class="blockquote-footer"><%= metadata_line(q) %></footer>
   <% end %>
 </div>
 
