@@ -13,11 +13,9 @@ class QuotesController < ApplicationController
     )
 
     if @quote.save
-      Rails.logger.info("Saved quote (id: #{@quote.id})")
       redirect_to quotes_path, flash: { msg: "Quote added!" }
     else
-      Rails.logger.info("Validation errors in quote: #{@quote.errors.messages}")
-      render new_quote_path
+      render :new
     end
   end
 end

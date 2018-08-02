@@ -1,11 +1,7 @@
-<%= render "layouts/header" %>
-
-<br></br>
-
 <div class="container">
   <%= simple_form_for @quote, html: { class: 'form-vertical' }, url: quotes_path, method: 'post' do |f| %>
     <%= f.input :quote_text, label: "Quote text", error: "The quote is mandatory!" %>
-    <%= f.input :author, label: "Author", hint: "can be anonymous" %>
+    <%= f.input :author, label: "Author", hint: "can be blank (anonymous)" %>
     <%= f.input :recorded_at, as: :text, label: "Recorded at:", hint: "if given, must be a date (YYYY-MM-DD) or a timestamp", error: "Invalid date." %>
     <%= f.input :origin, label: "Quote origin:", hint: "can be blank; type IRC for a surprise" %>
     <%= f.submit %>

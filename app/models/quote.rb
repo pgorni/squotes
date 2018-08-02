@@ -2,8 +2,11 @@ class Quote < ApplicationRecord
   validates :quote_text, presence: true
   validates_date :recorded_at, allow_blank: true
 
-  def to_irc
-    "[#{self.recorded_at.blank? ? Time.at(0) : self.recorded_at}] <#{self.author.blank? ? "anonymous" : self.author}> #{self.quote_text}"
+  before_save :handle_blank_values
+
+  def handle_blank_values
+    self.author = 'anonymous' if self.author.blank?
+    self.origin = 'unknown' if self.origin.blank?
+    self.recorded_at = Time.at(0) if self.recorded_at.blank?
   end
-  
 end

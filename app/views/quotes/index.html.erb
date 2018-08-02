@@ -1,18 +1,14 @@
-<%= render "layouts/header" %>
-
-<br></br>
-
 <% @quotes.each do |q| %>
 
-<div class="container-fluid">
-  <% if q.origin.match /irc|IRC/ %>
-    <!-- I know it's 2018 -->
-    <marquee bgcolor="black" style="color:#90FF00"><%= to_irc(q) %></marquee>
-  <% else %>
-    <div class="quote blockquote"><%= q.quote_text %></div>
-    <footer class="blockquote-footer"><%= metadata_line(q) %></footer>
-  <% end %>
-</div>
+  <div class="container-fluid">
+    <% if q.origin.downcase == 'irc' %>
+      <!-- I know it's 2018 -->
+      <marquee bgcolor="black" style="color:#90FF00"><%= to_irc(q) %></marquee>
+    <% else %>
+      <div class="quote blockquote"><%= q.quote_text %></div>
+      <footer class="blockquote-footer"><%= metadata_line(q) %></footer>
+    <% end %>
+  </div>
 
-<hr></hr>
+  <hr></hr>
 <% end %>
